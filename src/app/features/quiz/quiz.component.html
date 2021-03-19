@@ -1,0 +1,9 @@
+<div class="container">
+    <form>
+        <h2 class="question">Su quali elementi poggia il piano di marketing?</h2>
+            <div class="inputGroup" *ngFor="let answer of answers; let i = index">
+                <input id="radio{{i}}" name="radio" type="radio" />
+                <label for="radio{{i}}">{{answer}}</label>
+            </div>
+    </form>
+</div>
