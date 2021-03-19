@@ -2,11 +2,11 @@
     <form [formGroup]="quizForm" (ngSubmit)="submit()">
         <h1 class="question">{{questions[count].question}}</h1>
         <div class="inputGroup" *ngFor="let answer of questions[count].answers; let i = index">
-            <input id="radio{{i}}" type="radio" value={{i}} formControlName="answer" name="answer" />
+            <input id="radio{{i}}" type="radio" value={{i}} formControlName="answer"/>
             <label for="radio{{i}}">{{answer.text}}</label>
         </div>
         <div class="buttons">
-            <button type="button" mat-raised-button class="before">
+            <button type="button" mat-raised-button class="before" (click)="dec()">
                 <mat-icon>navigate_before</mat-icon>Indietro
             </button>
             <button *ngIf="count<4;else end" type="button" mat-raised-button class="next" (click)="inc()">
