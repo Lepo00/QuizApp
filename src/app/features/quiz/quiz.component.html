@@ -1,17 +1,22 @@
 <div class="container">
-    <form>
+    <form [formGroup]="quizForm" (ngSubmit)="submit()">
         <h1 class="question">{{questions[count].question}}</h1>
         <div class="inputGroup" *ngFor="let answer of questions[count].answers; let i = index">
-            <input id="radio{{i}}" name="radio" type="radio" />
+            <input id="radio{{i}}" type="radio" value={{i}} formControlName="answer" name="answer" />
             <label for="radio{{i}}">{{answer.text}}</label>
         </div>
+        <div class="buttons">
+            <button type="button" mat-raised-button class="before">
+                <mat-icon>navigate_before</mat-icon>Indietro
+            </button>
+            <button *ngIf="count<4;else end" type="button" mat-raised-button class="next" (click)="inc()">
+                Avanti <mat-icon>navigate_next</mat-icon>
+            </button>
+            <ng-template #end>
+                <button type="submit" mat-raised-button class="next">
+                    Fine <mat-icon>navigate_next</mat-icon>
+                </button>
+            </ng-template>
+        </div>
     </form>
-    <div class="buttons">
-        <button mat-raised-button class="before">
-            <mat-icon>navigate_before</mat-icon>Indietro
-        </button>
-        <button mat-raised-button class="next" (click)="inc()">
-            Avanti <mat-icon>navigate_next</mat-icon>
-        </button>
-    </div>
 </div>

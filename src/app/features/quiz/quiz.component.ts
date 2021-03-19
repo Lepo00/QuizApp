@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Question } from 'src/app/core/models/question';
 
 @Component({
@@ -8,8 +9,13 @@ import { Question } from 'src/app/core/models/question';
 })
 export class QuizComponent implements OnInit {
   count: number;
-  constructor() {
+  quizForm:FormGroup;
+
+  constructor(private fb: FormBuilder) {
     this.count = 0;
+    this.quizForm = fb.group({
+      answer: ['', Validators.required]
+    });
   }
   questions: Question[] = [
     {
@@ -58,12 +64,15 @@ export class QuizComponent implements OnInit {
       ]
     },
   ]
-  
+
   inc() {
-    if (this.count === 4)
-      this.count = 0;
+    const select:number=this.quizForm.get('answer').value;
+    this.questions[this.count].answers[select].selected=true;
     this.count++;
-    console.log(this.count);
+  }
+
+  submit(){
+    console.log(this.questions);
   }
 
   ngOnInit(): void {
