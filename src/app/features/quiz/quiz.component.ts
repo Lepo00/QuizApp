@@ -79,6 +79,13 @@ export class QuizComponent implements OnInit {
 
   dec() {
     this.count--;
+    this.questions[this.count].answers.map((question,index)=>{
+      if(question.selected)
+      this.quizForm = this.fb.group({
+        answer: [index+"", Validators.required]
+      });
+    })
+
   }
 
   submit() {
