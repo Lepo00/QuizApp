@@ -1,9 +1,15 @@
 <div class="container">
     <form>
-        <h2 class="question">Su quali elementi poggia il piano di marketing?</h2>
-            <div class="inputGroup" *ngFor="let answer of answers; let i = index">
-                <input id="radio{{i}}" name="radio" type="radio" />
-                <label for="radio{{i}}">{{answer}}</label>
-            </div>
+        <h1 class="question">{{questions[count].question}}</h1>
+        <div class="inputGroup" *ngFor="let answer of questions[count].answers; let i = index">
+            <input id="radio{{i}}" name="radio" type="radio" />
+            <label for="radio{{i}}">{{answer.text}}</label>
+        </div>
     </form>
+    <button mat-raised-button class="next" (click)="inc()">
+        Avanti <mat-icon>navigate_next</mat-icon>
+    </button>
+    <button mat-raised-button class="before">
+        <mat-icon>navigate_before</mat-icon>Indietro
+    </button>
 </div>

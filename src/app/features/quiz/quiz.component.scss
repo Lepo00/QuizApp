@@ -1,24 +1,42 @@
+@import '../../../env.scss';
 .container {
-    background-color: white;
-    position: absolute;
+    background-color: $bglight;
+    position: relative;
     width: 60%;
-    height: 70%;
-    top: 15%;
+    height: auto;
+    top: 10%;
     left: 20%;
     border-radius: 20px;
     padding: 20px;
+    font-size: 20px;
 }
 
 .question {
     margin: 0;
     text-align: center;
+    font-size: 30px;
+}
+
+.next{
+    float: right;
+}
+.before{
+    float: left; 
+}
+
+.next,.before{
+    background-color: $bgdark;
+    height: 50px;
+    font-size: 20px;
+    font-weight: normal;
+    margin: 2% 0;
 }
 
 .inputGroup {
     margin-top: 4%;
     
     label {
-        padding: 20px 35px;
+        padding: 15px 50px 15px 10px;
         width: 100%;
         display: block;
         cursor: pointer;
@@ -32,7 +50,7 @@
             height: 10px;
             border-radius: 50%;
             content: "";
-            background-color: #5562eb;
+            background-color: $bgdark;
             position: absolute;
             left: 50%;
             top: 50%;
@@ -71,8 +89,8 @@
         }
 
         &:after {
-            background-color: #54e0c7;
-            border-color: #54e0c7;
+            background-color: $color1;
+            border-color: $color2;
         }
     }
 
