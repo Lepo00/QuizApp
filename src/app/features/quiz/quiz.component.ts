@@ -13,7 +13,7 @@ export class QuizComponent implements OnInit {
   }
   questions: Question[] = [
     {
-      question: "su quali elementi poggia il piano di marketing?",
+      question: "Su quali elementi poggia il piano di marketing?",
       answers: [
         { text: "Mission e vision", selected: false, correct: false },
         { text: "Mission e business plan", selected: false, correct: true },
@@ -22,7 +22,7 @@ export class QuizComponent implements OnInit {
       ]
     },
     {
-      question: "quali sono gli strumenti chiave del web marketing?",
+      question: "Quali sono gli strumenti chiave del web marketing?",
       answers: [
         { text: "SEA, SEO, SMA", selected: false, correct: true },
         { text: "SEA, SEO, CEO", selected: false, correct: false },
@@ -31,7 +31,7 @@ export class QuizComponent implements OnInit {
       ]
     },
     {
-      question: "da cosa è composto il business Canvas?",
+      question: "Da cosa è composto il business Canvas?",
       answers: [
         { text: "Insieme di aree che aiutano a generare un’azienda", selected: false, correct: false },
         { text: "Insieme delle aree dove l’azienda vuole vendere i propri prodotti", selected: false, correct: false },
@@ -40,7 +40,7 @@ export class QuizComponent implements OnInit {
       ]
     },
     {
-      question: "qual è la definizione corretta di Funnel di vendita?",
+      question: "Qual è la definizione corretta di Funnel di vendita?",
       answers: [
         { text: "È l’analisi dei migliori prodotti offerti dall’azienda", selected: false, correct: false },
         { text: "È l’insieme dei clienti dell’azienda", selected: false, correct: false },
@@ -49,7 +49,7 @@ export class QuizComponent implements OnInit {
       ]
     },
     {
-      question: "qual è la definizione corretta di Advertising (ADV)",
+      question: "Qual è la definizione corretta di Advertising (ADV)",
       answers: [
         { text: "È una serie di questionari che l’azienda invia ai propri clienti per ricevere dei feedback", selected: false, correct: false },
         { text: "È un messaggio a pagamento che un'azienda invia con lo scopo di informare o influenzare le persone che lo ricevono riguardo a un prodotto o servizio", selected: false, correct: false },
@@ -58,21 +58,7 @@ export class QuizComponent implements OnInit {
       ]
     },
   ]
-
-  /*questions: string[] = [
-    "su quali elementi poggia il piano di marketing?",
-    "quali sono gli strumenti chiave del web marketing?",
-    "da cosa è composto il business Canvas?",
-    "qual è la definizione corretta di Funnel di vendita?",
-    "qual è la definizione corretta di Advertising (ADV)?"
-  ];
-  answers: string[][] = [
-    ["Mission e vision",
-      "Mission e business plan",
-      "Mission e brand",
-      "Vision e brand",]
-  ];*/
-
+  
   inc() {
     if (this.count === 4)
       this.count = 0;

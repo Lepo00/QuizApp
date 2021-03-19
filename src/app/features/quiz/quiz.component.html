@@ -6,10 +6,12 @@
             <label for="radio{{i}}">{{answer.text}}</label>
         </div>
     </form>
-    <button mat-raised-button class="next" (click)="inc()">
-        Avanti <mat-icon>navigate_next</mat-icon>
-    </button>
-    <button mat-raised-button class="before">
-        <mat-icon>navigate_before</mat-icon>Indietro
-    </button>
+    <div class="buttons">
+        <button mat-raised-button class="before">
+            <mat-icon>navigate_before</mat-icon>Indietro
+        </button>
+        <button mat-raised-button class="next" (click)="inc()">
+            Avanti <mat-icon>navigate_next</mat-icon>
+        </button>
+    </div>
 </div>

@@ -1,13 +1,15 @@
-@import '../../../env.scss';
+@import "../../../env.scss";
 .container {
     background-color: $bglight;
-    position: relative;
-    width: 60%;
-    height: auto;
-    top: 10%;
-    left: 20%;
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    margin: 0 auto;
+    padding: 30px;
+    width: 70%;
     border-radius: 20px;
-    padding: 20px;
     font-size: 20px;
 }
 
@@ -17,26 +19,33 @@
     font-size: 30px;
 }
 
-.next{
-    float: right;
-}
-.before{
-    float: left; 
-}
-
-.next,.before{
-    background-color: $bgdark;
+.buttons {
+    display: flex;
+    flex-grow: 1;
+    justify-content: space-between;
     height: 50px;
-    font-size: 20px;
-    font-weight: normal;
-    margin: 2% 0;
+    margin-top:1.5%;
+    .next,
+    .before {
+        font-weight: normal;
+        font-size: 20px;
+        background-color: $bgdark;
+    }
+    .before {
+        order: 0;
+    }
+    .next {
+        order: 1;
+    }
+
 }
 
 .inputGroup {
-    margin-top: 4%;
-    
+    margin-top: 1.5%;
+
     label {
-        padding: 15px 50px 15px 10px;
+        border: 3px solid white;
+        padding: 20px 55px 20px 10px;
         width: 100%;
         display: block;
         cursor: pointer;
@@ -96,12 +105,7 @@
 
     input {
         width: 32px;
-        height: 32px;
-        order: 1;
-        z-index: 2;
         position: absolute;
-        right: 30px;
-        top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
         visibility: hidden;
