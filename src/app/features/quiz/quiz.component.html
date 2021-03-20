@@ -2,14 +2,14 @@
     <form [formGroup]="quizForm" (ngSubmit)="submit()">
         <h1 class="question">{{questions[count].question}}</h1>
         <div class="inputGroup" *ngFor="let answer of questions[count].answers; let i = index">
-            <input id="radio{{i}}" type="radio" value={{i}} formControlName="answer"/>
+            <input id="radio{{i}}" type="radio" value={{i}} formControlName="answer" (ngModelChange)="selectRadio()"/>
             <label for="radio{{i}}">{{answer.text}}</label>
         </div>
         <div class="buttons">
-            <button type="button" mat-raised-button class="before" (click)="dec()">
+            <button [hidden]="count==0" type="button" mat-raised-button class="before" (click)="backward()">
                 <mat-icon>navigate_before</mat-icon>Indietro
             </button>
-            <button *ngIf="count<4;else end" type="button" mat-raised-button class="next" (click)="inc()">
+            <button *ngIf="count<4;else end" type="button" mat-raised-button class="next" (click)="forward()">
                 Avanti <mat-icon>navigate_next</mat-icon>
             </button>
             <ng-template #end>

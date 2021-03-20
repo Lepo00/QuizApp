@@ -69,34 +69,53 @@ export class QuizComponent implements OnInit {
     ]
   }
 
-
-  inc() {
-    const select: number = this.quizForm.get('answer').value;
-    this.questions[this.count].answers[select].selected = true;
-    this.quizForm.reset();
-    this.count++;
+  populateForm() {
+    let selected: boolean = false;
+    this.questions[this.count].answers.map((question, index) => {
+      if (question.selected) {
+        selected = true;
+        this.quizForm = this.fb.group({
+          answer: [index + '', Validators.required],
+        });
+      }
+    })
+    if (!selected)
+      this.quizForm = this.fb.group({
+        answer: ['', Validators.required],
+      });
   }
 
-  dec() {
-    this.count--;
-    this.questions[this.count].answers.map((question,index)=>{
-      if(question.selected)
-      this.quizForm = this.fb.group({
-        answer: [index+"", Validators.required]
-      });
+  selectRadio(){
+    const select: number = this.quizForm.get('answer').value;
+    this.questions[this.count].answers.map((answer, index) => {
+      if (index == select)
+        answer.selected = true;
+      else
+        answer.selected = false;
     })
+  }
 
+  forward() {
+    this.selectRadio();
+    this.count++;
+    this.populateForm();
+  }
+
+  backward() {
+    this.count--;
+    this.populateForm();
   }
 
   submit() {
     const select: number = this.quizForm.get('answer').value;
     this.questions[this.count].answers[select].selected = true;
-    this.questions.map((question, index)=>{
-      console.log("question "+index);
-      question.answers.map((select,index)=>{
-        console.log(index+": "+select.selected)
+    this.questions.map((question, index) => {
+      console.log("question " + index);
+      question.answers.map((select, index) => {
+        console.log(index + ": " + select.selected)
       })
     })
   }
 
 }
+
