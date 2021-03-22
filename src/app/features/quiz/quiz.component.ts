@@ -11,8 +11,10 @@ export class QuizComponent implements OnInit {
   questions: Question[] = [];
   count: number;
   quizForm: FormGroup;
+  end:boolean;
 
   constructor(private fb: FormBuilder) {
+    this.end=false;
     this.count = 0;
     this.quizForm = fb.group({
       answer: ['', Validators.required]
@@ -42,7 +44,7 @@ export class QuizComponent implements OnInit {
       {
         question: "Da cosa è composto il business Canvas?",
         answers: [
-          { text: "Insieme di aree che aiutano a generare un’azienda", selected: false, correct: false },
+          { text: "Insieme di aree che aiutano a generare un’azienda", selected: false, correct: true },
           { text: "Insieme delle aree dove l’azienda vuole vendere i propri prodotti", selected: false, correct: false },
           { text: "Insieme delle aree da migliorare in un’azienda", selected: false, correct: false },
           { text: "Insieme dei prodotti che vende un’azienda", selected: false, correct: false }
@@ -61,9 +63,9 @@ export class QuizComponent implements OnInit {
         question: "Qual è la definizione corretta di Advertising (ADV)",
         answers: [
           { text: "È una serie di questionari che l’azienda invia ai propri clienti per ricevere dei feedback", selected: false, correct: false },
-          { text: "È un messaggio a pagamento che un'azienda invia con lo scopo di informare o influenzare le persone che lo ricevono riguardo a un prodotto o servizio", selected: false, correct: false },
+          { text: "È un messaggio a pagamento che un'azienda invia con lo scopo di informare o influenzare le persone che lo ricevono riguardo a un prodotto o servizio", selected: false, correct: true },
           { text: "È un messaggio gratuito che un'azienda invia con lo scopo di informare o influenzare le persone che lo ricevono riguardo a un prodotto o servizio", selected: false, correct: false },
-          { text: "È un codice che usa l’azienda per tracciare le visualizzazioni delle sue pubblicità", selected: false, correct: true }
+          { text: "È un codice che usa l’azienda per tracciare le visualizzazioni delle sue pubblicità", selected: false, correct: false }
         ]
       },
     ]
@@ -106,6 +108,17 @@ export class QuizComponent implements OnInit {
     this.populateForm();
   }
 
+  countErrors():number{
+    let errors=0;
+    this.questions.map(question=>{
+      question.answers.map(answer=>{
+        if(answer.selected && !answer.correct)
+          errors+=1;
+      })
+    })
+    return errors;
+  }
+
   submit() {
     const select: number = this.quizForm.get('answer').value;
     this.questions[this.count].answers[select].selected = true;
@@ -115,6 +128,8 @@ export class QuizComponent implements OnInit {
         console.log(index + ": " + select.selected)
       })
     })
+    this.end=true;
+    this.countErrors();
   }
 
 }

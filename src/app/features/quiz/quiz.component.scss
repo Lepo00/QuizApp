@@ -24,7 +24,7 @@
     flex-grow: 1;
     justify-content: space-between;
     height: 50px;
-    margin-top:1.5%;
+    margin-top: 1.5%;
     .next,
     .before {
         font-weight: normal;
@@ -37,7 +37,6 @@
     .next {
         order: 1;
     }
-
 }
 
 .inputGroup {
@@ -109,5 +108,15 @@
         transform: translateY(-50%);
         cursor: pointer;
         visibility: hidden;
+    }
+}
+
+.end {
+    text-align: center;
+    h1{
+        font-size: 50px;
+    }
+    h3{
+        font-size: 30px;
     }
 }
