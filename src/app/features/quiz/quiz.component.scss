@@ -3,20 +3,24 @@
   background-color: $bglight;
   position: absolute;
   top: 50%;
-  left: 15%;
+  left: 25%;
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   margin: 0 auto;
-  padding: 30px;
-  width: 70%;
-  border-radius: 20px;
+  padding: 30px 18px 18px 18px;
+  width: 50%;
+  border-radius: 4px;
   font-size: 20px;
+  box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .question {
   margin: 0;
   text-align: center;
-  font-size: 30px;
+  font-size: 1.8em;
+  margin-bottom: 50px;
+  line-height: 1.1em;
+  color: $colortext;
 }
 
 .buttons {
@@ -24,25 +28,24 @@
   flex-grow: 1;
   justify-content: space-between;
   height: 50px;
-  margin-top: 1.5%;
+  margin-top: 50px;
   .next,
   .before {
     font-weight: normal;
     font-size: 20px;
     background-color: $bgdark;
-    border: 3px solid white;
     color: white;
+    box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
   }
   .before {
     order: 0;
   }
   .next {
     order: 1;
-  }
-
-  .next[disabled]{
-    background-color: rgb(138, 137, 137);
-    cursor: not-allowed;
+    &:disabled {
+      background-color: rgb(138, 137, 137);
+      cursor: not-allowed;
+    }
   }
 }
 
@@ -50,15 +53,18 @@
   margin-top: 1.5%;
 
   label {
-    border: 3px solid white;
-    padding: 20px 60px 20px 10px;
+    margin: 10px 0 10px 0;
+    background-color: white;
+    padding: 20px 80px 20px 20px;
     width: 100%;
     display: block;
     cursor: pointer;
     position: relative;
     z-index: 2;
     overflow: hidden;
-    border-radius: 10px;
+    border-radius: 4px;
+    color: $colortext;
+    box-shadow: 3px 3px 6px rgba(150, 106, 106, 0.2);
 
     &:before {
       width: 20px;
@@ -95,6 +101,9 @@
     }
   }
 
+  input ~ label {
+    transition: color 500ms ease;
+  }
   input:checked ~ label {
     color: #fff;
 
