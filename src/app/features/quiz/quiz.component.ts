@@ -17,11 +17,8 @@ export class QuizComponent implements OnInit {
     this.end = false;
     this.count = 0;
     this.quizForm = fb.group({
-      answer: ["-1", Validators.required]
+      answer: ["", Validators.required]
     });
-  }
-
-  ngOnInit(): void {
     this.questions = [
       {
         question: "Su quali elementi poggia il piano di marketing?",
@@ -126,6 +123,8 @@ export class QuizComponent implements OnInit {
     ];
   }
 
+  ngOnInit(): void {}
+
   populateForm() {
     let selected: boolean = false;
     this.questions[this.count].answers.map((question, index) => {
@@ -134,12 +133,11 @@ export class QuizComponent implements OnInit {
         this.quizForm = this.fb.group({
           answer: [index + "", Validators.required]
         });
+        return;
       }
     });
     if (!selected)
-      this.quizForm = this.fb.group({
-        answer: ["", Validators.required]
-      });
+      this.quizForm.reset();
   }
 
   selectRadio() {
@@ -155,7 +153,7 @@ export class QuizComponent implements OnInit {
     this.count++;
     this.populateForm();
   }
-
+  
   backward() {
     this.count--;
     this.populateForm();
@@ -173,13 +171,6 @@ export class QuizComponent implements OnInit {
 
   submit() {
     this.selectRadio();
-    this.questions.map((question, index) => {
-      console.log("question " + index);
-      question.answers.map((select, index) => {
-        console.log(index + ": " + select.selected);
-      });
-    });
     this.end = true;
-    this.countErrors();
   }
 }

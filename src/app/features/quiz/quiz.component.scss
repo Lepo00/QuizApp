@@ -30,12 +30,19 @@
     font-weight: normal;
     font-size: 20px;
     background-color: $bgdark;
+    border: 3px solid white;
+    color: white;
   }
   .before {
     order: 0;
   }
   .next {
     order: 1;
+  }
+
+  .next[disabled]{
+    background-color: rgb(138, 137, 137);
+    cursor: not-allowed;
   }
 }
 
