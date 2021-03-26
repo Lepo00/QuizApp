@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Question } from "../../core/models/question";
 
@@ -7,7 +7,7 @@ import { Question } from "../../core/models/question";
   templateUrl: "./quiz.component.html",
   styleUrls: ["./quiz.component.scss"]
 })
-export class QuizComponent implements OnInit {
+export class QuizComponent {
   questions: Question[] = [];
   count: number;
   quizForm: FormGroup;
@@ -122,8 +122,6 @@ export class QuizComponent implements OnInit {
       }
     ];
   }
-
-  ngOnInit(): void {}
 
   populateForm() {
     let selected: boolean = false;
