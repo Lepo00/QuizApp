@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { QuizRoutingModule } from './quiz-routing.module';
 import { QuizComponent } from './quiz.component';
-import { SharedModule } from 'src/app/shared/shared.module';
+import { SharedModule } from '../../shared/shared.module';
 
 
 @NgModule({
