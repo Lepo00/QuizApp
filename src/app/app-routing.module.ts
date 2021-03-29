@@ -10,6 +10,7 @@ const routes: Routes = [
   { path: 'create-quiz', loadChildren: () => import('./features/create-quiz/create-quiz.module').then(m => m.CreateQuizModule) },
   { path: 'admin', loadChildren: () => import('./features/admin/admin.module').then(m => m.AdminModule) },
   { path: 'results', loadChildren: () => import('./features/results/results.module').then(m => m.ResultsModule) },
+  { path: 'contact', loadChildren: () => import('./features/contact/contact.module').then(m => m.ContactModule) },
 ];
 
 @NgModule({
